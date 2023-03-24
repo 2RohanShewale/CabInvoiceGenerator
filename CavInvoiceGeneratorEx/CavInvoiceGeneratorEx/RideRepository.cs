@@ -13,5 +13,34 @@ namespace CavInvoiceGeneratorEx
         {
             userRides = new Dictionary<string, List<Ride>>();
         }
+
+        public void AddRide(string userId, Ride[] rides)
+        {
+            bool rideList = userRides.ContainsKey(userId);
+            try
+            {
+                if (!rideList)
+                {
+                    List<Ride> list = new List<Ride>();
+                    list.AddRange(rides);
+                    userRides.Add(userId, list);
+                }
+            }
+            catch (CabInvoiceExceptions)
+            {
+                throw new CabInvoiceExceptions(CabInvoiceExceptions.CabInvoiceExceptionType.NULL_RIDES, "Rides Are Null");
+            }
+        }
+        public Ride[] GetRides(string userId)
+        {
+            try
+            {
+                return userRides[userId].ToArray();
+            }
+            catch (Exception)
+            {
+                throw new CabInvoiceExceptions(CabInvoiceExceptions.CabInvoiceExceptionType.INVALID_USER_ID, "Invalid User ID");
+            }
+        }
     }
 }
