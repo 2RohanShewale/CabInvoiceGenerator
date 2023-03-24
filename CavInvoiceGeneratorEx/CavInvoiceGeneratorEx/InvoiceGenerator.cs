@@ -60,5 +60,39 @@ namespace CavInvoiceGeneratorEx
             }
             return Math.Max(totalFare, MINIMUM_FARE);
         }
+        public InvoiceSummary CalculateFare(Ride[] rides)
+        {
+            double totalFare = 0;
+            try
+            {
+                foreach (var ride in rides)
+                {
+                    totalFare += CalculateFare(ride.distace, ride.time);
+                }
+            }
+            catch (CabInvoiceExceptions)
+            {
+                if (rides == null)
+                {
+                    throw new CabInvoiceExceptions(CabInvoiceExceptions.CabInvoiceExceptionType.NULL_RIDES, "Rides are Null");
+                }
+            }
+            return new InvoiceSummary(rides.Length, totalFare);
+        }
+        public void AddRides(string userId, Ride[] rides)
+        {
+            try
+            {
+                rideRepository.AddRide(userId, rides);
+            }
+            catch (CabInvoiceExceptions)
+            {
+
+                if (rides == null)
+                {
+                    throw new CabInvoiceExceptions(CabInvoiceExceptions.CabInvoiceExceptionType.NULL_RIDES, "Rides are Null");
+                }
+            }
+        }
     }
 }
