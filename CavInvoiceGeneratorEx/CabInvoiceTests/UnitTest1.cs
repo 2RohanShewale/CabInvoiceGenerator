@@ -29,5 +29,20 @@ namespace CabInvoiceTests
             InvoiceSummary invoice = invoiceGenerator.CalculateFare(rides);
             Assert.AreEqual(36, invoice.totatlFare);
         }
+        [Test]
+        public void GivenUserId_ShouldReturnListOfRides()
+        {
+
+            RideRepository rideRepository = new RideRepository();
+
+            Ride[] rides = { new Ride(1.0f, 2.0f), new Ride(2.0f, 4.0f) };
+
+            rideRepository.AddRide("Rohan", rides);
+
+            Ride[] arrayOfRides = rideRepository.GetRides("Rohan");
+
+            Assert.AreEqual(rides, arrayOfRides);
+        }
+
     }
 }

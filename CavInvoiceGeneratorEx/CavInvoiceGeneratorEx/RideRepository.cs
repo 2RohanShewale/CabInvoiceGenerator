@@ -25,6 +25,8 @@ namespace CavInvoiceGeneratorEx
                     list.AddRange(rides);
                     userRides.Add(userId, list);
                 }
+                else
+                    userRides[userId].AddRange(rides);
             }
             catch (CabInvoiceExceptions)
             {
