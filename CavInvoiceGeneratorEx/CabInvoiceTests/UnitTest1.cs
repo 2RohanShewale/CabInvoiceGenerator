@@ -43,6 +43,14 @@ namespace CabInvoiceTests
 
             Assert.AreEqual(rides, arrayOfRides);
         }
+        [Test]
+        public void GivenSetOfRidesShouldReturnTotalFairForPremium()
+        {
+            Ride[] rides = { new Ride(1.0f, 2.0f), new Ride(2.0f, 4.0f) };
+            invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+            InvoiceSummary invoice = invoiceGenerator.CalculateFare(rides);
+            Assert.AreEqual(58, invoice.totatlFare);
+        }
 
     }
 }

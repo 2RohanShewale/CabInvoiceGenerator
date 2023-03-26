@@ -9,6 +9,5 @@ namespace CavInvoiceGeneratorEx
     public enum RideType
     {
         NORMAL,
-        PREMIUM
-    }
+        PREMIUM   }
 }

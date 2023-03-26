@@ -11,7 +11,7 @@ namespace CavInvoiceGeneratorEx
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Cab Invoice Generator");
-            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(1.0f, 2.0f), new Ride(2.0f, 4.0f) };
             RideRepository rideRepo = new RideRepository();
             rideRepo.AddRide("Rohan", rides);
