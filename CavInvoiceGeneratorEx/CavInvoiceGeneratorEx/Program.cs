@@ -12,8 +12,13 @@ namespace CavInvoiceGeneratorEx
         {
             Console.WriteLine("Welcome to Cab Invoice Generator");
             InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
-            double fare = invoiceGenerator.CalculateFare(2.0, 5);
-            Console.WriteLine($"Fare: {fare}");
+            Ride[] rides = { new Ride(1.0f, 2.0f), new Ride(2.0f, 4.0f) };
+
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            Console.WriteLine(summary.numberOfRides);
+            Console.WriteLine(summary.totatlFare);
+            Console.WriteLine(summary.averageFare);
+
 
             Console.ReadKey();
         }

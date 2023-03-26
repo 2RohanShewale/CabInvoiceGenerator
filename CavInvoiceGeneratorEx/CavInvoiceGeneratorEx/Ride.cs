@@ -9,9 +9,9 @@ namespace CavInvoiceGeneratorEx
     public class Ride
     {
         public double distace;
-        public int time;
+        public double time;
 
-        public Ride(double distace, int time)
+        public Ride(double distace, float time)
         {
             this.distace = distace;
             this.time = time;

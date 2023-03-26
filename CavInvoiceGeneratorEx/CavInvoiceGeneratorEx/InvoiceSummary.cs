@@ -2,9 +2,9 @@
 {
     public class InvoiceSummary
     {
-        private int numberOfRides;
-        private double totatlFare;
-        private double averageFare;
+        public int numberOfRides;
+        public double totatlFare;
+        public double averageFare;
 
         public InvoiceSummary(int numberOfRides, double totatlFare)
         {

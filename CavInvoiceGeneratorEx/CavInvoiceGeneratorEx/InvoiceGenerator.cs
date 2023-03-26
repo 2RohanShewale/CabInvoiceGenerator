@@ -36,7 +36,7 @@ namespace CavInvoiceGeneratorEx
                 throw new CabInvoiceExceptions(CabInvoiceExceptions.CabInvoiceExceptionType.INVALID_RIDE_TYPE, "Invalid Ride Type");
             }
         }
-        public double CalculateFare(double distance, int time)
+        public double CalculateFare(double distance, double time)
         {
             double totalFare = 0;
             try
